@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KITHUB - Professional Development Hub</title>
+    <title>KITTHUB - Professional Development Hub</title>
     <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-color-dark: #2563eb;
+            --secondary-color: #6366f1;
+            --text-dark: #0f172a;
+            --text-medium: #1e293b;
+            --text-light: #64748b;
+            --text-extra-light: #94a3b8;
+            --bg-light: #f8fafc;
+            --bg-dark: #e2e8f0;
+            --bg-white-t-25: rgba(255, 255, 255, 0.25);
+            --bg-white-t-30: rgba(255, 255, 255, 0.3);
+            --bg-white-t-40: rgba(255, 255, 255, 0.4);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,8 +28,8 @@
 
         body {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            color: #1e293b;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-dark) 100%);
+            color: var(--text-medium);
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -27,17 +42,17 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.03) 0%, transparent 50%);
+                radial-gradient(circle at 25% 25%, hsla(217, 91%, 60%, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, hsla(239, 84%, 66%, 0.03) 0%, transparent 50%);
             z-index: -1;
         }
 
         /* Premium glassmorphism elements */
         .glass {
-            background: rgba(255, 255, 255, 0.25);
+            background: var(--bg-white-t-25);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid var(--bg-white-t-30);
             box-shadow: 
                 0 8px 32px rgba(0, 0, 0, 0.08),
                 inset 0 1px 0 rgba(255, 255, 255, 0.4);
@@ -57,6 +72,12 @@
             width: fit-content;
         }
 
+        .nav.scrolled {
+            background: var(--bg-white-t-40);
+            border-color: var(--bg-white-t-40);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
         .nav-container {
             display: flex;
             align-items: center;
@@ -66,7 +87,8 @@
         .logo {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #3b82f6;
+            color: var(--primary-color);
+            text-decoration: none;
             letter-spacing: -0.025em;
         }
 
@@ -77,7 +99,7 @@
         }
 
         .nav-links a {
-            color: #64748b;
+            color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.875rem;
@@ -87,7 +109,7 @@
         }
 
         .nav-links a:hover {
-            color: #3b82f6;
+            color: var(--primary-color);
         }
 
         .nav-links a::after {
@@ -97,7 +119,7 @@
             left: 50%;
             width: 0;
             height: 2px;
-            background: #3b82f6;
+            background: var(--primary-color);
             transition: all 0.3s ease;
             transform: translateX(-50%);
             border-radius: 1px;
@@ -127,14 +149,13 @@
             font-size: clamp(3.5rem, 8vw, 6.5rem);
             font-weight: 800;
             margin-bottom: 1.5rem;
-            color: #0f172a;
+            color: var(--text-dark);
             letter-spacing: -0.05em;
             line-height: 0.9;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
-            color: #64748b;
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);            color: var(--text-light);
             margin-bottom: 3rem;
             font-weight: 400;
             max-width: 600px;
@@ -153,8 +174,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: #3b82f6;
+            padding: 1rem 2rem;            background: var(--primary-color);
             color: white;
             text-decoration: none;
             border-radius: 12px;
@@ -165,7 +185,7 @@
         }
 
         .cta-primary:hover {
-            background: #2563eb;
+            background: var(--primary-color-dark);
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
         }
@@ -175,8 +195,8 @@
             align-items: center;
             gap: 0.5rem;
             padding: 1rem 2rem;
-            border: 2px solid rgba(59, 130, 246, 0.2);
-            color: #3b82f6;
+            border: 2px solid hsla(217, 91%, 60%, 0.2);
+            color: var(--primary-color);
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
@@ -187,7 +207,7 @@
         }
 
         .cta-secondary:hover {
-            border-color: #3b82f6;
+            border-color: var(--primary-color);
             background: rgba(59, 130, 246, 0.05);
         }
 
@@ -206,14 +226,13 @@
         .section-title {
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 700;
-            color: #0f172a;
+            color: var(--text-dark);
             margin-bottom: 1rem;
             letter-spacing: -0.025em;
         }
 
         .section-subtitle {
-            font-size: 1.125rem;
-            color: #64748b;
+            font-size: 1.125rem;            color: var(--text-light);
             max-width: 600px;
             margin: 0 auto;
         }
@@ -232,18 +251,17 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--bg-white-t-30);
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            width: 60px;            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -257,17 +275,17 @@
             font-size: 1.375rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: #0f172a;
+            color: var(--text-dark);
         }
 
         .service-card p {
-            color: #64748b;
+            color: var(--text-light);
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
 
         .service-link {
-            color: #3b82f6;
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.875rem;
@@ -305,13 +323,13 @@
         .stat-item h3 {
             font-size: 3rem;
             font-weight: 800;
-            color: #3b82f6;
+            color: var(--primary-color);
             margin-bottom: 0.5rem;
             letter-spacing: -0.025em;
         }
 
         .stat-item p {
-            color: #64748b;
+            color: var(--text-light);
             font-weight: 500;
             font-size: 0.875rem;
             text-transform: uppercase;
@@ -335,12 +353,12 @@
         .feature-item {
             padding: 2rem;
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--bg-white-t-30);
             transition: all 0.3s ease;
         }
 
         .feature-item:hover {
-            transform: translateY(-4px);
+            transform: translateY(-8px) scale(1.02);
         }
 
         .feature-icon {
@@ -490,7 +508,7 @@
 
     <nav class="glass">
         <div class="nav-container">
-            <div class="logo">KITHUB</div>
+            <div class="logo">KITTHUB</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -502,7 +520,7 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>KITHUB</h1>
+            <h1>KITTHUB</h1>
             <p class="hero-subtitle">Professional development hub delivering premium projects, open-source solutions, and innovative tools for modern developers.</p>
             <div class="cta-group">
                 <a href="#services" class="cta-primary">
@@ -554,15 +572,7 @@
                 </a>
             </div>
             
-            <div class="service-card glass fade-in">
-                <div class="service-icon">💡</div>
-                <h3>Innovation Lab</h3>
-                <p>Experimental concepts and breakthrough ideas that push technological boundaries and explore the future of software development.</p>
-                <a href="#" class="service-link">
-                    Discover Ideas
-                    <span>→</span>
-                </a>
-            </div>
+            
         </div>
     </section>
 
@@ -582,7 +592,7 @@
             </div>
             <div class="stat-item">
                 <h3>100%</h3>
-                <p>Client Satisfaction</p>
+                <p>Transparency</p>
             </div>
         </div>
     </section>
@@ -618,24 +628,14 @@
                 <p>Optimized for speed and efficiency with modern development practices and technologies.</p>
             </div>
             
-            <div class="feature-item glass">
-                <div class="feature-icon">🤝</div>
-                <h4>Community Driven</h4>
-                <p>Open collaboration and continuous improvement through community feedback and contributions.</p>
-            </div>
             
-            <div class="feature-item glass">
-                <div class="feature-icon">🎯</div>
-                <h4>Solution Oriented</h4>
-                <p>Focused on solving real-world problems with practical and innovative approaches.</p>
-            </div>
         </div>
     </section>
 
     <footer id="contact" class="glass">
         <div class="footer-content">
             <div class="footer-brand">
-                <div class="logo">KITHUB</div>
+                <div class="logo">KITTHUB</div>
                 <p class="footer-tagline">Building tomorrow's software today</p>
             </div>
             
@@ -647,7 +647,7 @@
                 <a href="#">Documentation</a>
             </div>
             
-            <p class="copyright">© 2025 KITHUB. All rights reserved. Crafted with precision and passion.</p>
+            <p class="copyright">© 2025 KITTHUB. All rights reserved. Crafted with precision and passion.</p>
         </div>
     </footer>
 
