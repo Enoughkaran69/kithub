@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KITTHUB - Professional Development Hub</title>
+    <title>KITTBASH</title>
+    <link rel="icon" type="image/png" href="KITTt.png">
     <style>
         :root {
             --primary-color: #3b82f6;
@@ -343,48 +344,117 @@
             margin: 0 auto;
         }
 
-        .features-grid {
+        .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin-top: 4rem;
         }
 
-        .feature-item {
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid var(--bg-white-t-30);
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-8px) scale(1.02);
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: #f1f5f9;
-            border-radius: 12px;
+        .tutorial-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
             display: flex;
+            flex-direction: column;
+            border: 1px solid var(--bg-white-t-30);
+            text-decoration: none;
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tutorial-image-link {
+            display: block;
+        }
+
+        .tutorial-image {
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            overflow: hidden;
+            background-color: var(--bg-dark);
+        }
+
+        .tutorial-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .tutorial-card:hover .tutorial-image img {
+            transform: scale(1.05);
+        }
+
+        .tutorial-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tutorial-content h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .tutorial-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* "More Tutorials" card style */
+        .more-tutorials-card {
+            background: var(--bg-white-t-25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            color: #3b82f6;
-            font-size: 1.25rem;
+            text-align: center;
+            padding: 2rem;
         }
 
-        .feature-item h4 {
-            font-size: 1.125rem;
+        .more-tutorials-card div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .more-tutorials-card h4 {
+            font-size: 1.5rem;
             font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
 
-        .feature-item p {
-            color: #64748b;
-            font-size: 0.875rem;
-            line-height: 1.6;
+        .more-tutorials-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 0;
+        }
+
+        .more-tutorials-card .arrow {
+            font-size: 3rem;
+            line-height: 1;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .more-tutorials-card:hover .arrow {
+            transform: translateX(10px);
         }
 
         /* Footer */
@@ -508,20 +578,23 @@
 
     <nav class="glass">
         <div class="nav-container">
-            <div class="logo">KITTHUB</div>
+            <div class="logo">KITTBASH</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#services">Projects</a></li>
+                <li><a href="#features">Tutorials</a></li>
+                <li><a href="#contact">About</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>KITTHUB</h1>
-            <p class="hero-subtitle">Professional development hub delivering premium projects, open-source solutions, and innovative tools for modern developers.</p>
+            <h1>KITTBASH</h1>
+            <p class="hero-subtitle">✨ “Hi, I’m Karan. Welcome to KIITBASH.”</p>
+            <p class="hero-subtitle">
+                 Where Ideas Turn into Code 
+            </p>
             <div class="cta-group">
                 <a href="#services" class="cta-primary">
                     Explore Projects
@@ -537,105 +610,116 @@
 
     <section class="services" id="services">
         <div class="section-header">
-            <h2 class="section-title">Our Expertise</h2>
-            <p class="section-subtitle">Comprehensive development solutions crafted with precision and delivered with excellence.</p>
+            <h2 class="section-title">My Recent Projects</h2>
+            <p class="section-subtitle">Here's a selection of my work. Each project is a journey from concept to a fully-functional application.</p>
         </div>
         
-        <div class="services-grid">
-            <div class="service-card glass fade-in">
-                <div class="service-icon">💻</div>
-                <h3>Open Source Projects</h3>
-                <p>Meticulously crafted projects with complete source code, comprehensive documentation, and best practices for seamless integration and learning.</p>
-                <a href="#" class="service-link">
-                    View Projects
-                    <span>→</span>
+        <div class="card-grid">
+            <!-- Project Card 1 -->
+            <div class="tutorial-card glass">
+                <a href="#" class="tutorial-image-link">
+                    <div class="tutorial-image">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=870&auto=format&fit=crop" alt="Project One">
+                    </div>
                 </a>
+                <div class="tutorial-content">
+                    <h4>Glamlink - Beauty & Fashion</h4>
+                    <p>A full-stack e-shopping website built with the MERN stack, featuring product listings, reels , afflitate.</p>
+                    <a href="#" class="service-link">
+                        Check it
+                        <span>→</span>
+                    </a>
+                </div>
             </div>
-            
-            <div class="service-card glass fade-in">
-                <div class="service-icon">🛠️</div>
-                <h3>Development Tools</h3>
-                <p>Professional-grade utilities, libraries, and frameworks designed to enhance productivity and streamline your development workflow.</p>
-                <a href="#" class="service-link">
-                    Browse Tools
-                    <span>→</span>
-                </a>
-            </div>
-            
-            <div class="service-card glass fade-in">
-                <div class="service-icon">🎨</div>
-                <h3>Web Solutions</h3>
-                <p>Premium websites and applications built with cutting-edge technologies, optimized for performance, and designed for excellence.</p>
-                <a href="#" class="service-link">
-                    See Portfolio
-                    <span>→</span>
-                </a>
-            </div>
-            
-            
-        </div>
-    </section>
 
-    <section class="stats glass">
-        <div class="stats-container">
-            <div class="stat-item">
-                <h3>150+</h3>
-                <p>Projects Delivered</p>
+            
+
+            <!-- Project Card 3 -->
+            <div class="tutorial-card glass">
+                <a href="#" class="tutorial-image-link">
+                    <div class="tutorial-image">
+                        <img src="https://images.unsplash.com/photo-1601129490376-e24f32ed8024?q=80&w=870&auto=format&fit=crop" alt="Project Three">
+                    </div>
+                </a>
+                <div class="tutorial-content">
+                    <h4>Watch Together App</h4>
+                    <p>A React App to watch together youtube videos from anywhere apart</p>
+                    <a href="#" class="service-link">
+                        Live Demo
+                        <span>→</span>
+                    </a>
+                </div>
             </div>
-            <div class="stat-item">
-                <h3>50K+</h3>
-                <p>Lines of Code</p>
-            </div>
-            <div class="stat-item">
-                <h3>25+</h3>
-                <p>Tools Created</p>
-            </div>
-            <div class="stat-item">
-                <h3>100%</h3>
-                <p>Transparency</p>
-            </div>
+
+            <!-- More Projects Card -->
+            <a href="#" class="tutorial-card more-tutorials-card">
+                <div>
+                    <h4>View All Projects</h4>
+                    <p>Explore my full portfolio of work on GitHub and beyond.</p>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
         </div>
     </section>
 
     <section class="features" id="features">
         <div class="section-header">
-            <h2 class="section-title">Why Choose KITHUB</h2>
-            <p class="section-subtitle">Professional standards, innovative solutions, and uncompromising quality in every project we deliver.</p>
+            <h2 class="section-title">Featured Tutorials</h2>
+            <p class="section-subtitle">Dive into our collection of tutorials, designed to help you master new skills and build amazing things.</p>
         </div>
         
-        <div class="features-grid">
-            <div class="feature-item glass">
-                <div class="feature-icon">⚡</div>
-                <h4>Premium Quality</h4>
-                <p>Every project meets enterprise-grade standards with thorough testing and optimization.</p>
+        <div class="card-grid">
+            <!-- Tutorial Card 1 -->
+            <div class="tutorial-card glass">
+                <a href="#" class="tutorial-image-link">
+                    <div class="tutorial-image">
+                        <img src="https://github.githubassets.com/images/modules/explore/social.jpg" alt="Modern JavaScript Tutorial">
+                    </div>
+                </a>
+                <div class="tutorial-content">
+                    <h4>How to Upload Project to github from VS-CODE</h4>
+                    <p>A detail tutorial of uploading repositories directly on github from vs code.</p>
+                    <a href="#" class="service-link">
+                        Check Now
+                        <span>→</span>
+                    </a>
+                </div>
             </div>
-            
-            <div class="feature-item glass">
-                <div class="feature-icon">🔒</div>
-                <h4>Secure & Reliable</h4>
-                <p>Built with security-first approach and industry best practices for maximum reliability.</p>
+
+            <!-- Tutorial Card 2 -->
+            <div class="tutorial-card glass">
+                <a href="#" class="tutorial-image-link">
+                    <div class="tutorial-image">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop" alt="React for Beginners">
+                    </div>
+                </a>
+                <div class="tutorial-content">
+                    <h4>4 FREE Ways to deploy React App</h4>
+                    <p>Learn how to deploy your React application.</p>
+                    <a href="#" class="service-link">
+                        Check Now
+                        <span>→</span>
+                    </a>
+                </div>
             </div>
+
             
-            <div class="feature-item glass">
-                <div class="feature-icon">📚</div>
-                <h4>Well Documented</h4>
-                <p>Comprehensive documentation and clean code for easy understanding and maintenance.</p>
-            </div>
-            
-            <div class="feature-item glass">
-                <div class="feature-icon">🚀</div>
-                <h4>Performance Focused</h4>
-                <p>Optimized for speed and efficiency with modern development practices and technologies.</p>
-            </div>
-            
-            
+
+            <!-- More Tutorials Card -->
+            <a href="#" class="tutorial-card more-tutorials-card">
+                <div>
+                    <h4>View All Tutorials</h4>
+                    <p>Explore the complete library of tutorials and resources.</p>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
         </div>
     </section>
 
     <footer id="contact" class="glass">
         <div class="footer-content">
             <div class="footer-brand">
-                <div class="logo">KITTHUB</div>
+                <div class="logo">KITTBASH</div>
                 <p class="footer-tagline">Building tomorrow's software today</p>
             </div>
             
@@ -647,7 +731,7 @@
                 <a href="#">Documentation</a>
             </div>
             
-            <p class="copyright">© 2025 KITTHUB. All rights reserved. Crafted with precision and passion.</p>
+            <p class="copyright">© 2025 KITTBASH. All rights reserved. Crafted with precision and passion.</p>
         </div>
     </footer>
 
@@ -708,17 +792,6 @@
             el.style.animationPlayState = 'paused';
             el.style.animationDelay = `${index * 0.1}s`;
             observer.observe(el);
-        });
-
-        // Add premium hover effects
-        document.querySelectorAll('.service-card, .feature-item').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
         });
     </script>
 </body>
